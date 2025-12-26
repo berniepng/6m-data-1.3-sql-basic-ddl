@@ -2,3 +2,4 @@ solutions/
 *.db
 *.wal
 venv/*
+oryx-build-commands.txt
