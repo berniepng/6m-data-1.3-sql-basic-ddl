@@ -1,20 +1,52 @@
-# **In data science, data is the new oil. DDL is how we build the refinery.**
+# **📘 Lesson Plan: SQL Data Definition (DDL) with DuckDB**
+**In data science, data is the new oil. DDL is how we build the refinery.**
 
-## **SQL Data Definition Language (DDL) with DuckDB**
+* **Module:** 1.3 Data Definition & Management 
+* **Target Audience:** Adult Learners (Basic Python knowledge) 
+* **Methodology:** Flipped Classroom / Code-Along / "I do, We do, You do"
+* **Tools:** [DbGate](https://dbgate.org/), [DuckDB](https://duckdb.org/)
+
+## **🎯 Learning Objectives (Bloom's Taxonomy)**
+
+By the end of this session, learners will be able to:
+
+1. **Identify** the hierarchical structure of a relational database (Database \> Schema \> Table) to organize data effectively.  
+2. **Apply** `CREATE` statements with strict constraints (Primary/Foreign Keys) to **construct** a relational schema that enforces data integrity.  
+3. **Execute** data pipeline commands (`COPY`) to **import** raw CSV data into structured tables for analysis.
+
+## **⏱️ Agenda & Topic Prioritization**
+
+| Time | Section | Focus | Top 3 Core Topics (Must Cover) | Optional Topics (Mention briefly or Skip) |
+| ----- | ----- | ----- | ----- | ----- |
+| **0:00 \- 0:55** | **1\. The Foundation** | **Identify** | **`CREATE TABLE` & Types:** Defining the physical container for data and choosing the right `VARCHAR` vs `INT`. | DuckDB internal storage (`.wal` files), Sequence objects. |
+| **0:55 \- 1:05** | *Break* |  |  |  |
+| **1:05 \- 2:00** | **2\. The Blueprint** | **Construct** | **Constraints (PK/FK):** The "Rules" of the database. How `PRIMARY KEY` and `FOREIGN KEY` prevent bad data. | Complex `CHECK` constraints (Regex), Composite Keys. |
+| **2:00 \- 2:10** | *Break* |  |  |  |
+| **2:10 \- 3:00** | **3\. The Pipeline** | **Execute** | **Data Import (`COPY`):** Moving external data (CSV) into the database to make it useful. | `DROP` vs `TRUNCATE`, Exporting to JSON. |
 
 
-**Tools:** [DbGate](https://dbgate.org/), [DuckDB](https://duckdb.org/)
 
 
 
 ---
-## **Section 1: Fundamentals of Database Structure & Connections**
+## **Section 1: The Foundation (Structure)**
 
-**Learning Objective:** By the end of this section, learners will be able to connect to a DuckDB database using DbGate and perform basic schema and table creation, alter table and drop (delete) table.
+**Goal:** Move from "What is a database?" to "I have a place to store data."
 
-* **Theory Summary/Recap:**  
-  * What is an RDBMS? Understanding the relationship between databases, schemas, and tables.
-  * What is the Difference between Excel and a Relational Database?
+#### **1.1 The Narrative**
+
+"In Python, you create variables like `my_data = []`. But when you turn off the computer, that data vanishes. To make data specific and permanent, we need a **Database**. Think of it like a physical File Cabinet:
+
+* **The Database:** The Cabinet itself.  
+* **The Schema:** A specific drawer (labeled 'HR' or 'Sales').  
+* **The Table:** A folder inside that drawer.  
+* **The Column:** The specific form fields in that folder (Name, Date, ID). Today, we aren't just coding; we are building the cabinet."
+
+#### **1.2 Concept: Types Matter**
+
+* **INTEGER:** Math-able numbers. (e.g., Age, Count).  
+* **VARCHAR:** Text. (e.g., Name, Email).  
+* **DATE:** Chronological points. (Don't store dates as text\!)
 
 ---
 <details>
